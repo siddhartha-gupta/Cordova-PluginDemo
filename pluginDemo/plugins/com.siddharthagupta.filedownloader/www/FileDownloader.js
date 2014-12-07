@@ -5,8 +5,7 @@ var cordova = require('cordova'),
 	function FileDownloader() {}
 
 	FileDownloader.prototype = function() {
-		var usingMultiFileInterface = false,
-			filesToDownload = [],
+		var filesToDownload = [],
 			downloadedData = [],
 			successCallback = null,
 			errorCallback = null,
@@ -22,10 +21,9 @@ var cordova = require('cordova'),
 			 * errorCallback: callback fired after every file, if file is not downloaded successfully
 			 * completeCallback: callback when all files are downloaded
 			 */
-			downloadMultipleFiles = function(params) {
+			downloadFiles = function(params) {
 				resetAttrs();
 
-				usingMultiFileInterface = true;
 				filesToDownload = params.data.slice(0);
 				successCallback = params.successCallback || null;
 				errorCallback = params.errorCallback || null;
@@ -35,21 +33,17 @@ var cordova = require('cordova'),
 
 			downloadRecursively = function() {
 				console.log('downloadRecursively');
-				if (usingMultiFileInterface) {
-					if (filesToDownload.length > 0) {
-						downloadFile({
-							'url': filesToDownload[0].url,
-							'fileName': filesToDownload[0].fileName,
-							'directoryName': filesToDownload[0].directoryName,
-							'successCallback': successCallback,
-							'errorCallback': errorCallback
-						});
-						filesToDownload.splice(0, 1);
-					} else {
-						completeCallback(downloadedData);
-					}
+				if (filesToDownload.length > 0) {
+					downloadFile({
+						'url': filesToDownload[0].url,
+						'fileName': filesToDownload[0].fileName,
+						'directoryName': filesToDownload[0].directoryName,
+						'successCallback': successCallback,
+						'errorCallback': errorCallback
+					});
+					filesToDownload.splice(0, 1);
 				} else {
-					resetAttrs();
+					completeCallback(downloadedData);
 				}
 			},
 
@@ -62,11 +56,6 @@ var cordova = require('cordova'),
 			 * errorCallback: error callback
 			 */
 			downloadFile = function(params) {
-				if (!usingMultiFileInterface) {
-					successCallback = params.successCallback || null;
-					errorCallback = params.errorCallback || null;
-				}
-
 				exec(function(data) {
 						console.log('fileDownloader success');
 						downloadedData.push(data);
@@ -92,7 +81,6 @@ var cordova = require('cordova'),
 			},
 
 			resetAttrs = function() {
-				usingMultiFileInterface = false;
 				filesToDownload.length = 0;
 				downloadedData.length = 0;
 				successCallback = null;
@@ -102,8 +90,7 @@ var cordova = require('cordova'),
 
 
 		return {
-			'downloadMultipleFiles': downloadMultipleFiles,
-			'downloadFile': downloadFile
+			'downloadFiles': downloadFiles
 		};
 	}();
 

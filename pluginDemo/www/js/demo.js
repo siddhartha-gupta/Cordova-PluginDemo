@@ -1,27 +1,9 @@
 (function(win) {
 	function demoClass() {
-		var downloadSingleFile = function() {
-				console.log('downloadSingleFile');
-				// To download single file
-				fileDownloader.downloadFile({
-					'url': 'http://hd.wallpaperswide.com/thumbs/fire_fist_vs_water_fist-t2.jpg',
-					'fileName': 'test.jpg',
-					'directoryName': 'abc',
-					'successCallback': function(data) {
-						console.log('successCallback');
-						console.log(data);
-					},
-					'errorCallback': function(err) {
-						console.log(err);
-					}
-				});
-
-			},
-
-			downloadMultipleFiles = function() {
-				console.log('downloadMultipleFiles');
+		var downloadFiles = function() {
+				console.log('downloadFiles');
 				// To download multiple files
-				fileDownloader.downloadMultipleFiles({
+				fileDownloader.downloadFiles({
 					data: [{
 						'url': 'http://hd.wallpaperswide.com/thumbs/fire_fist_vs_water_fist-t2.jpg',
 						'fileName': 'test.jpg',
@@ -108,8 +90,7 @@
 			};
 
 		return {
-			downloadSingleFile: downloadSingleFile,
-			downloadMultipleFiles: downloadMultipleFiles,
+			downloadFiles: downloadFiles,
 			checkDownloadedFileExist: checkDownloadedFileExist,
 			moveDownloadedFile: moveDownloadedFile,
 			copyDownloadedFile: copyDownloadedFile,

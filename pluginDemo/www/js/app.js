@@ -37,12 +37,8 @@
 				event.preventDefault();
 
 				switch ($(this).attr('id')) {
-					case 'downloadSingleFile':
-						appInstance.demoClass.downloadSingleFile();
-						break;
-
-					case 'downloadMultipleFiles':
-						appInstance.demoClass.downloadMultipleFiles();
+					case 'downloadFiles':
+						appInstance.demoClass.downloadFiles();
 						break;
 
 					case 'checkDownloadedFileExist':
