@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"FileManager\"><param name=\"ios-package\" value=\"FileManager\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileDownloader\"><param name=\"ios-package\" value=\"FileDownloader\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -26,6 +30,9 @@
             "PACKAGE_NAME": "com.siddharhta.plugindemo"
         },
         "com.siddharthagupta.filemanager": {
+            "PACKAGE_NAME": "com.siddharhta.plugindemo"
+        },
+        "com.siddharthagupta.filedownloader": {
             "PACKAGE_NAME": "com.siddharhta.plugindemo"
         }
     },

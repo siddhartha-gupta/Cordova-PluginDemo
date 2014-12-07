@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.siddharthagupta.filedownloader" version="1.0">
+
+        <name>FileDownloader</name>
+        <description>File Downloader Plugin</description>
+        <license>MPL</license>
+        <keywords>cordova,filedownloader</keywords>
+
+        <js-module src="www/FileDownloader.js" name="FileDownloader">
+            <clobbers target="fileDownloader" />
+        </js-module>
+
+        <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="FileDownloader">
+                    <param name="ios-package" value="FileDownloader" />
+                </feature>
+            </config-file>
+            <header-file src="src/ios/FileDownloader.h" />
+            <source-file src="src/ios/FileDownloader.m" />
+        </platform>
+</plugin>

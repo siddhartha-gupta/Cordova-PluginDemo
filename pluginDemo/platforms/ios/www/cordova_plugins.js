@@ -20,13 +20,21 @@ module.exports = [
         "clobbers": [
             "fileManager"
         ]
+    },
+    {
+        "file": "plugins/com.siddharthagupta.filedownloader/www/FileDownloader.js",
+        "id": "com.siddharthagupta.filedownloader.FileDownloader",
+        "clobbers": [
+            "fileDownloader"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "org.apache.cordova.console": "0.2.11",
-    "com.siddharthagupta.filemanager": "1.0"
+    "com.siddharthagupta.filemanager": "1.0",
+    "com.siddharthagupta.filedownloader": "1.0"
 }
 // BOTTOM OF METADATA
 });

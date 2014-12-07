@@ -25,6 +25,9 @@
     <feature name="FileManager">
         <param name="ios-package" value="FileManager" />
     </feature>
+    <feature name="FileDownloader">
+        <param name="ios-package" value="FileDownloader" />
+    </feature>
     <name>PluginDemo</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
