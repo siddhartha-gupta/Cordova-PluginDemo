@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A7A4ABB4-612E-4BC1-9ECB-8DB90928E064</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PluginDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1FDA8B1304841A0A973B0B44FB3C77406B07010B</key>
+		<string>https://github.com/siddhartha-gupta/Cordova-PluginDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>pluginDemo/platforms/ios/PluginDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1FDA8B1304841A0A973B0B44FB3C77406B07010B</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/siddhartha-gupta/Cordova-PluginDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1FDA8B1304841A0A973B0B44FB3C77406B07010B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1FDA8B1304841A0A973B0B44FB3C77406B07010B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cordova-PluginDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

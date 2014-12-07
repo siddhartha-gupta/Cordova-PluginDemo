@@ -11,24 +11,6 @@
                         {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "framework": {
-                "parents": {
-                    "AudioToolbox.framework": [
-                        {
-                            "xml": "true",
-                            "count": 1
                         }
                     ]
                 }
@@ -37,12 +19,6 @@
     },
     "installed_plugins": {
         "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.siddharhta.plugindemo"
-        },
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.siddharhta.plugindemo"
-        },
-        "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.siddharhta.plugindemo"
         }
     },
