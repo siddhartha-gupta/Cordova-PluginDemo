@@ -4,6 +4,48 @@ var cordova = require('cordova'),
 function FileManager() {}
 
 /**
+ * To get absolute path of documents directory
+ *
+ * @param {Object}
+ * successCallback: success callback
+ * errorCallback: error callback
+ */
+FileManager.prototype.documentsPath = function(params) {
+	exec(function(result) {
+			console.log('documents path: ' + result);
+			params.successCallback(result);
+		},
+		function(error) {
+			console.log('error in retrieving docuements path' + error);
+			params.errorCallback(error);
+		},
+		"FileManager",
+		"documentsPath", []
+	);
+};
+
+/**
+ * To get absolute path of library directory
+ *
+ * @param {Object}
+ * successCallback: success callback
+ * errorCallback: error callback
+ */
+FileManager.prototype.libraryPath = function(params) {
+	exec(function(result) {
+			console.log('library path: ' + result);
+			params.successCallback(result);
+		},
+		function(error) {
+			console.log('error in retrieving library path' + error);
+			params.errorCallback(error);
+		},
+		"FileManager",
+		"libraryPath", []
+	);
+};
+
+/**
  * To check whether file exist or not
  *
  * @param {Object}

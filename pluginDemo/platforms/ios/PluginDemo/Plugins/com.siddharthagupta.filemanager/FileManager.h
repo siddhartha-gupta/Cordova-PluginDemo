@@ -12,6 +12,8 @@
 
 @interface FileManager : CDVPlugin
 
+- (void)documentsPath:(CDVInvokedUrlCommand*)command;
+- (void)libraryPath:(CDVInvokedUrlCommand*)command;
 - (void)checkFileExist:(CDVInvokedUrlCommand*)command;
 - (void)moveFile:(CDVInvokedUrlCommand*)command;
 - (void)copyFile:(CDVInvokedUrlCommand*)command;

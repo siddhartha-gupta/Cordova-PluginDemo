@@ -8,13 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "FileManager.h"
-#import <sys/xattr.h>
 
 @implementation FileManager
 
-- (void)addSkipBackupAttributeToPath:(NSString*)path {
-    u_int8_t b = 1;
-    setxattr([path fileSystemRepresentation], "com.apple.MobileBackup", &b, 1, 0, 0);
+-(void)documentsPath:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult* pluginResult = nil;
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[paths objectAtIndex:0]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+-(void)libraryPath:(CDVInvokedUrlCommand*)command {
+    CDVPluginResult* pluginResult = nil;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[paths objectAtIndex:0]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)checkFileExist:(CDVInvokedUrlCommand*)command {

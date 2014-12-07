@@ -45,6 +45,24 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+        fileManager.documentsPath({
+            'successCallback': function(path) {
+                console.log(path);
+            },
+            'errorCallback': function(err) {
+                console.log(err);
+            }
+        });
+
+        fileManager.libraryPath({
+            'successCallback': function(path) {
+                console.log(path);
+            },
+            'errorCallback': function(err) {
+                console.log(err);
+            }
+        });
     }
 };
 
