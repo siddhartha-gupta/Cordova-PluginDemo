@@ -43,11 +43,77 @@
 						console.log(JSON.stringify(data));
 					}
 				});
+			},
+
+			checkDownloadedFileExist = function() {
+				var path = appInstance.getAttribute('libPath') + '/abc/test.jpg';
+
+				fileManager.checkFileExist({
+					'source': path,
+					'successCallback': function(resp) {
+						console.log(resp);
+					},
+					'errorCallback': function(err) {
+						console.log(err);
+					}
+				});
+			},
+
+			moveDownloadedFile = function() {
+				var path = appInstance.getAttribute('libPath') + '/abc/test.jpg';
+				var target = appInstance.getAttribute('libPath') + '/test.jpg';
+
+				fileManager.moveFile({
+					'source': path,
+					'target': target,
+					'successCallback': function(resp) {
+						console.log(resp);
+					},
+					'errorCallback': function(err) {
+						console.log(err);
+					}
+				});
+			},
+
+			copyDownloadedFile = function() {
+				var path = appInstance.getAttribute('libPath') + '/abc/test.jpg';
+				var target = appInstance.getAttribute('libPath') + '/test.jpg';
+
+				fileManager.copyFile({
+					'source': path,
+					'target': target,
+					'successCallback': function(resp) {
+						console.log(resp);
+					},
+					'errorCallback': function(err) {
+						console.log(err);
+					}
+				});
+			},
+
+			renameDownloadedFile = function() {
+				var path = appInstance.getAttribute('libPath') + '/abc/test1.jpg';
+				var newFileName = 'newfile.jpg';
+
+				fileManager.renameFile({
+					'source': path,
+					'newFileName': newFileName,
+					'successCallback': function(resp) {
+						console.log(resp);
+					},
+					'errorCallback': function(err) {
+						console.log(err);
+					}
+				});
 			};
 
 		return {
 			downloadSingleFile: downloadSingleFile,
-			downloadMultipleFiles: downloadMultipleFiles
+			downloadMultipleFiles: downloadMultipleFiles,
+			checkDownloadedFileExist: checkDownloadedFileExist,
+			moveDownloadedFile: moveDownloadedFile,
+			copyDownloadedFile: copyDownloadedFile,
+			renameDownloadedFile: renameDownloadedFile
 		};
 	}
 	win.appInstance = win.appInstance || {};

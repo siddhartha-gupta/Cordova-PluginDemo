@@ -9,23 +9,7 @@
 			},
 
 			onDeviceReady = function() {
-				$('p').off(clickEvent).on(clickEvent, function(event) {
-					event.stopPropagation();
-					event.preventDefault();
-
-					switch ($(this).attr('id')) {
-						case 'downloadSingleFile':
-							appInstance.demoClass.downloadSingleFile();
-							break;
-
-						case 'downloadMultipleFiles':
-							appInstance.demoClass.downloadMultipleFiles();
-							break;
-
-						default:
-							break;
-					}
-				});
+				$('p').off(clickEvent).on(clickEvent, fireClickedFunc);
 
 				fileManager.documentsPath({
 					'successCallback': function(path) {
@@ -46,6 +30,41 @@
 						console.log(err);
 					}
 				});
+			},
+
+			fireClickedFunc = function() {
+				event.stopPropagation();
+				event.preventDefault();
+
+				switch ($(this).attr('id')) {
+					case 'downloadSingleFile':
+						appInstance.demoClass.downloadSingleFile();
+						break;
+
+					case 'downloadMultipleFiles':
+						appInstance.demoClass.downloadMultipleFiles();
+						break;
+
+					case 'checkDownloadedFileExist':
+						appInstance.demoClass.checkDownloadedFileExist();
+						break;
+
+					case 'moveDownloadedFile':
+						appInstance.demoClass.moveDownloadedFile();
+						break;
+
+					case 'copyDownloadedFile':
+						appInstance.demoClass.copyDownloadedFile();
+						break;
+
+					case 'renameDownloadedFile':
+						appInstance.demoClass.renameDownloadedFile();
+						break;
+
+					default:
+						break;
+				}
+
 			},
 
 			getAttribute = function(attr) {

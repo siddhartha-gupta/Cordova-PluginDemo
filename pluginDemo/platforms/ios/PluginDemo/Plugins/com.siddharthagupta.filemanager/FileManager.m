@@ -50,7 +50,7 @@
     NSString *errorDesc = @"";
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
-    if ([fileManager fileExistsAtPath:targetPath]) {
+    if ([fileManager fileExistsAtPath:sourcePath]) {
         [fileManager copyItemAtPath:sourcePath toPath:targetPath error:&error];
         if (error) {
             errorDesc = [NSString stringWithFormat:@"%@ %@", @"Error while moving the file", targetPath];
@@ -82,7 +82,7 @@
     NSString *errorDesc = @"";
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
-    if ([fileManager fileExistsAtPath:targetPath]) {
+    if ([fileManager fileExistsAtPath:sourcePath]) {
         [fileManager copyItemAtPath:sourcePath toPath:targetPath error:&error];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:targetPath];
         if (error) {
