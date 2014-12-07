@@ -1,15 +1,36 @@
 (function(win) {
 	function app() {
-		var initialize = function() {
+		var libPath = null,
+			docPath = null,
+			clickEvent = (String(document.ontouchmove) !== 'undefined') ? 'click tap' : 'click',
+
+			initialize = function() {
 				document.addEventListener('deviceready', onDeviceReady, false);
 			},
 
 			onDeviceReady = function() {
-				console.log('on deviceready');
+				$('p').off(clickEvent).on(clickEvent, function(event) {
+					event.stopPropagation();
+					event.preventDefault();
+
+					switch ($(this).attr('id')) {
+						case 'downloadSingleFile':
+							appInstance.demoClass.downloadSingleFile();
+							break;
+
+						case 'downloadMultipleFiles':
+							appInstance.demoClass.downloadMultipleFiles();
+							break;
+
+						default:
+							break;
+					}
+				});
 
 				fileManager.documentsPath({
 					'successCallback': function(path) {
 						console.log(path);
+						docPath = path;
 					},
 					'errorCallback': function(err) {
 						console.log(err);
@@ -19,53 +40,28 @@
 				fileManager.libraryPath({
 					'successCallback': function(path) {
 						console.log(path);
+						libPath = path;
 					},
 					'errorCallback': function(err) {
 						console.log(err);
-					}
-				});
-
-				// To download single file
-				/*fileDownloader.downloadFile({
-					'url': 'http://hd.wallpaperswide.com/thumbs/fire_fist_vs_water_fist-t2.jpg',
-					'fileName': 'test.jpg',
-					'directoryName': 'abc',
-					'successCallback': function(data) {
-						console.log('successCallback');
-						console.log(data);
-					},
-					'errorCallback': function(err) {
-						console.log(err);
-					}
-				});*/
-
-				// To download multiple files
-				fileDownloader.downloadMultipleFiles({
-					data: [{
-						'url': 'http://hd.wallpaperswide.com/thumbs/fire_fist_vs_water_fist-t2.jpg',
-						'fileName': 'test.jpg',
-						'directoryName': 'abc',
-					}, {
-						'url': 'http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/new-wallpaper-3.jpg',
-						'fileName': 'test1.jpg',
-						'directoryName': 'abc',
-					}],
-					'successCallback': function(data) {
-						console.log('successCallback');
-						console.log(data);
-					},
-					'errorCallback': function(err) {
-						console.log(err);
-					},
-					'completeCallback': function(data) {
-						console.log('completeCallback');
-						console.log(JSON.stringify(data));
 					}
 				});
 			},
 
 			getAttribute = function(attr) {
+				switch (attr) {
+					case 'libPath':
+						return libPath;
 
+					case 'docPath':
+						return docPath;
+
+					case 'clickEvent':
+						return clickEvent;
+
+					default:
+						return false;
+				}
 			};
 
 		return {
@@ -74,7 +70,7 @@
 			getAttribute: getAttribute
 		};
 	}
-	win.app = new app();
+	win.appInstance = new app();
 
-	win.app.initialize();
+	win.appInstance.initialize();
 })(window);

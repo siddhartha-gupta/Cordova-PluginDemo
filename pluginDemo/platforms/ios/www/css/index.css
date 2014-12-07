@@ -42,3 +42,12 @@ textarea:focus, input:focus {
 input[type="button"], input[type="submit"], input[type="reset"] {
     -webkit-appearance:button;
 }
+
+p {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: 1px solid #eee;
+    text-align: center;
+    padding: 5px 0;
+}
