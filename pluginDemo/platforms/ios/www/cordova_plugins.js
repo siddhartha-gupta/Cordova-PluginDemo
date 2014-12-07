@@ -13,12 +13,20 @@ module.exports = [
         "clobbers": [
             "cordova.logger"
         ]
+    },
+    {
+        "file": "plugins/com.siddharthagupta.filemanager/www/FileManager.js",
+        "id": "com.siddharthagupta.filemanager.FileManager",
+        "clobbers": [
+            "fileManager"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.console": "0.2.11"
+    "org.apache.cordova.console": "0.2.11",
+    "com.siddharthagupta.filemanager": "1.0"
 }
 // BOTTOM OF METADATA
 });

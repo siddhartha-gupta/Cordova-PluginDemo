@@ -22,6 +22,9 @@
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
+    <feature name="FileManager">
+        <param name="ios-package" value="FileManager" />
+    </feature>
     <name>PluginDemo</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

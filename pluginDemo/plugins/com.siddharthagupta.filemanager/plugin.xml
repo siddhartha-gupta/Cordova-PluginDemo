@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.siddharthagupta.filemanager" version="1.0">
+
+        <name>FileManager</name>
+        <description>File Manager Plugin</description>
+        <license>MPL</license>
+        <keywords>cordova,filemanager,filedownloader</keywords>
+        <js-module src="www/FileManager.js" name="FileManager">
+            <clobbers target="fileManager" />
+        </js-module>
+        <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="FileManager">
+                    <param name="ios-package" value="FileManager" />
+                </feature>
+            </config-file>
+            <header-file src="src/ios/FileManager.h" />
+            <source-file src="src/ios/FileManager.m" />
+        </platform>
+</plugin>
